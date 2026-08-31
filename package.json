@@ -1,0 +1,44 @@
+{
+  "name": "logistics-tmp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "add-admin": "node scripts/add-admin.js",
+    "change-pass": "node scripts/change-password.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "@supabase/supabase-js": "^2.90.1",
+    "@types/bcrypt": "^6.0.0",
+    "@types/leaflet": "^1.9.21",
+    "bcrypt": "^6.0.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.26.2",
+    "iron-session": "^8.0.4",
+    "jose": "^6.1.3",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.562.0",
+    "next": "16.1.2",
+    "prisma": "^6.2.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-leaflet": "^5.0.0",
+    "tailwind-merge": "^3.4.0",
+    "zod": "^4.3.5",
+    "zustand": "^5.0.10"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

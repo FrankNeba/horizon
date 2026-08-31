@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0066FF;
+  --secondary: #FF6B00;
+  --success: #10B981;
+  --dark: #0F172A;
+  --light: #F8FAFC;
+  --background: #ffffff;
+  --foreground: #0F172A;
+}
+
+@theme {
+  @keyframes slow-zoom {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+  }
+  --animate-slow-zoom: slow-zoom 20s ease-in-out infinite alternate;
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-dark: var(--dark);
+  --color-light: var(--light);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

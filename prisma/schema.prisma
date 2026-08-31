@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id       String @id @default(cuid())
+  username String @unique
+  password String
+
+  @@map("horizon_users")
+}
+
+model Shipment {
+  id               String   @id @default(cuid())
+  trackingId       String   @unique
+  productName      String
+  description      String?
+  
+  takeoffLocation  String
+  takeoffLat       Float
+  takeoffLng       Float
+  takeoffTime      DateTime
+  
+  deliveryLocation String
+  deliveryLat      Float
+  deliveryLng      Float
+  deliveryTime     DateTime
+  
+  status           String   @default("Pending") // Pending, In Transit, Delivered, etc.
+  courier          String?
+  
+  senderName       String
+  senderAddress    String?
+  senderEmail      String?
+  
+  recipientName    String
+  recipientAddress String?
+  recipientEmail   String?
+  
+  imageUrl         String?
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("horizon_shipments")
+}
