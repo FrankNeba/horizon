@@ -74,10 +74,10 @@ export function Footer() {
                                 <Phone className="h-5 w-5 text-secondary shrink-0" />
                                 <span className="text-gray-400 text-sm">{SITE_CONFIG.phone}</span>
                             </li> */}
-                            <li className="flex items-center space-x-3">
+                            {/* <li className="flex items-center space-x-3">
                                 <Mail className="h-5 w-5 text-secondary shrink-0" />
                                 <span className="text-gray-400 text-sm">{SITE_CONFIG.email}</span>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
