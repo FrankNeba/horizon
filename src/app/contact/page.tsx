@@ -34,13 +34,7 @@ export default function ContactPage() {
                                             <p className="text-gray-500 text-sm">{SITE_CONFIG.phone}</p>
                                         </div>
                                     </div> */}
-                                    <div className="flex items-start space-x-4">
-                                        <div className="bg-success/10 p-3 rounded-lg"><Mail className="text-success h-6 w-6" /></div>
-                                        <div>
-                                            <p className="font-bold text-dark">Email Us</p>
-                                            <p className="text-gray-500 text-sm">{SITE_CONFIG.email}</p>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
 
