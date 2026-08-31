@@ -29,7 +29,7 @@ export default function RootLayout({
         <Script id="smartsupp-script" strategy="afterInteractive">
           {`
             var _smartsupp = _smartsupp || {};
-            _smartsupp.key = '0edcb4115c980ed9e8072ce45d06fae712dc3eba';
+            _smartsupp.key = '2e1dfd66b8e2d01c762627296af365282c437c42';
             window.smartsupp||(function(d) {
               var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
               s=d.getElementsByTagName('script')[0];c=d.createElement('script');
