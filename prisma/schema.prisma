@@ -41,10 +41,12 @@ model Shipment {
   senderName       String
   senderAddress    String?
   senderEmail      String?
+  senderPhone      String?
   
   recipientName    String
   recipientAddress String?
   recipientEmail   String?
+  recipientPhone   String?
   
   imageUrl         String?
   

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Plane, MapPin, Clock, Calendar, Truck, User, ArrowRight, Package, Search } from "lucide-react";
+import { Plane, MapPin, Clock, Calendar, Truck, User, ArrowRight, Package, Search, Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -195,8 +195,13 @@ function TrackingContent() {
                                     <p className="text-xs font-black text-secondary uppercase tracking-widest mb-3">Sender</p>
                                     <div className="space-y-2">
                                         <p className="text-dark font-bold">{shipment.senderName}</p>
-                                        <p className="text-sm text-gray-500">{shipment.senderAddress}</p>
-                                        <p className="text-sm text-gray-500">{shipment.senderEmail}</p>
+                                        {shipment.senderPhone && (
+                                            <p className="text-sm text-gray-500 flex items-center gap-2">
+                                                <Phone className="h-3.5 w-3.5 text-gray-400" /> {shipment.senderPhone}
+                                            </p>
+                                        )}
+                                        {shipment.senderAddress && <p className="text-sm text-gray-500">{shipment.senderAddress}</p>}
+                                        {shipment.senderEmail && <p className="text-sm text-gray-500">{shipment.senderEmail}</p>}
                                     </div>
                                 </div>
 
@@ -204,8 +209,13 @@ function TrackingContent() {
                                     <p className="text-xs font-black text-success uppercase tracking-widest mb-3">Receiver</p>
                                     <div className="space-y-2">
                                         <p className="text-dark font-bold">{shipment.recipientName}</p>
-                                        <p className="text-sm text-gray-500">{shipment.recipientAddress}</p>
-                                        <p className="text-sm text-gray-500">{shipment.recipientEmail}</p>
+                                        {shipment.recipientPhone && (
+                                            <p className="text-sm text-gray-500 flex items-center gap-2">
+                                                <Phone className="h-3.5 w-3.5 text-gray-400" /> {shipment.recipientPhone}
+                                            </p>
+                                        )}
+                                        {shipment.recipientAddress && <p className="text-sm text-gray-500">{shipment.recipientAddress}</p>}
+                                        {shipment.recipientEmail && <p className="text-sm text-gray-500">{shipment.recipientEmail}</p>}
                                     </div>
                                 </div>
                             </div>

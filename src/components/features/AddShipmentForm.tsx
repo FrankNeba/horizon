@@ -32,9 +32,11 @@ export function AddShipmentForm({
         senderName: shipment?.senderName || "",
         senderAddress: shipment?.senderAddress || "",
         senderEmail: shipment?.senderEmail || "",
+        senderPhone: shipment?.senderPhone || "",
         recipientName: shipment?.recipientName || "",
         recipientAddress: shipment?.recipientAddress || "",
         recipientEmail: shipment?.recipientEmail || "",
+        recipientPhone: shipment?.recipientPhone || "",
         status: shipment?.status || "Pending",
         imageUrl: shipment?.imageUrl || "",
     });
@@ -258,6 +260,7 @@ export function AddShipmentForm({
                     </h3>
                     <div className="space-y-6">
                         <input placeholder="Name" required className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.senderName} onChange={e => updateField("senderName", e.target.value)} />
+                        <input placeholder="Phone Number" className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.senderPhone} onChange={e => updateField("senderPhone", e.target.value)} />
                         <input placeholder="Address" className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.senderAddress} onChange={e => updateField("senderAddress", e.target.value)} />
                         <input placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.senderEmail} onChange={e => updateField("senderEmail", e.target.value)} />
                     </div>
@@ -268,6 +271,7 @@ export function AddShipmentForm({
                     </h3>
                     <div className="space-y-6">
                         <input placeholder="Name" required className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.recipientName} onChange={e => updateField("recipientName", e.target.value)} />
+                        <input placeholder="Phone Number" className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.recipientPhone} onChange={e => updateField("recipientPhone", e.target.value)} />
                         <input placeholder="Address" className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.recipientAddress} onChange={e => updateField("recipientAddress", e.target.value)} />
                         <input placeholder="Email" className="w-full px-4 py-3 border-2 border-gray-100 rounded-lg focus:border-primary outline-none" value={formData.recipientEmail} onChange={e => updateField("recipientEmail", e.target.value)} />
                     </div>
