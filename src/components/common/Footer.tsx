@@ -66,18 +66,14 @@ export function Footer() {
                     <div>
                         <h3 className="text-lg font-bold mb-6 border-l-4 border-secondary pl-3">Contact Us</h3>
                         <ul className="space-y-6">
-                            {/* <li className="flex items-start space-x-3">
-                                <MapPin className="h-5 w-5 text-secondary shrink-0" />
-                                <span className="text-gray-400 text-sm">{SITE_CONFIG.address}</span>
-                            </li>
                             <li className="flex items-center space-x-3">
                                 <Phone className="h-5 w-5 text-secondary shrink-0" />
-                                <span className="text-gray-400 text-sm">{SITE_CONFIG.phone}</span>
-                            </li> */}
-                            {/* <li className="flex items-center space-x-3">
+                                <a href={`tel:${SITE_CONFIG.phone}`} className="text-gray-400 hover:text-white text-sm transition-colors">{SITE_CONFIG.phone}</a>
+                            </li>
+                            <li className="flex items-center space-x-3">
                                 <Mail className="h-5 w-5 text-secondary shrink-0" />
-                                <span className="text-gray-400 text-sm">{SITE_CONFIG.email}</span>
-                            </li> */}
+                                <a href={`mailto:${SITE_CONFIG.email}`} className="text-gray-400 hover:text-white text-sm transition-colors">{SITE_CONFIG.email}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

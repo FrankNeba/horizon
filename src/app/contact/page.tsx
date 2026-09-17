@@ -20,21 +20,20 @@ export default function ContactPage() {
                             <div>
                                 {/* <h3 className="text-xl font-black text-dark mb-8 border-l-4 border-secondary pl-4">Our Offices</h3> */}
                                 <div className="space-y-8">
-                                    {/* <div className="flex items-start space-x-4">
-                                        <div className="bg-primary/10 p-3 rounded-lg"><MapPin className="text-primary h-6 w-6" /></div>
+                                    <div className="flex items-start space-x-4">
+                                        <div className="bg-primary/10 p-3 rounded-lg"><Mail className="text-primary h-6 w-6" /></div>
                                         <div>
-                                            <p className="font-bold text-dark">Headquarters</p>
-                                            <p className="text-gray-500 text-sm">{SITE_CONFIG.address}</p>
+                                            <p className="font-bold text-dark">Email Us</p>
+                                            <a href={`mailto:${SITE_CONFIG.email}`} className="text-gray-500 text-sm hover:text-secondary transition-colors">{SITE_CONFIG.email}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-4">
                                         <div className="bg-secondary/10 p-3 rounded-lg"><Phone className="text-secondary h-6 w-6" /></div>
                                         <div>
                                             <p className="font-bold text-dark">Call Support</p>
-                                            <p className="text-gray-500 text-sm">{SITE_CONFIG.phone}</p>
+                                            <a href={`tel:${SITE_CONFIG.phone}`} className="text-gray-500 text-sm hover:text-secondary transition-colors">{SITE_CONFIG.phone}</a>
                                         </div>
-                                    </div> */}
-
+                                    </div>
                                 </div>
                             </div>
 

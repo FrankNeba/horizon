@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
     name: "Horizon Logistics",
     description: "Global supply chain solutions, freight forwarding, and high-performance logistics services.",
-    email: "contact@horizonlogistics.com",
-    phone: "+44 20 7946 0000",
+    email: "logisticshorizon470@gmail.com",
+    phone: "(929) 244-3099",
     address: "International House, 24 Holborn Viaduct, London EC1A 2BN, UK",
 };
 
