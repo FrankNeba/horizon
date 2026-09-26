@@ -24,13 +24,13 @@ const TrackingMap = dynamic(() => import("@/components/features/TrackingMap"), {
 // ── Status colour helper ───────────────────────────────────────────────────
 const statusStyle = (status: string) => {
     switch (status) {
-        case "Delivered":    return { bg: "#d1fae5", text: "#065f46", dot: "#10b981" };
-        case "In Transit":   return { bg: "#dbeafe", text: "#1e40af", dot: "#3b82f6" };
-        case "Custom Hold":  return { bg: "#fef3c7", text: "#92400e", dot: "#f59e0b" };
-        case "Held":         return { bg: "#fef3c7", text: "#92400e", dot: "#f59e0b" };
-        case "Pending":      return { bg: "#f3f4f6", text: "#374151", dot: "#6b7280" };
-        case "Returned":     return { bg: "#fee2e2", text: "#991b1b", dot: "#ef4444" };
-        default:             return { bg: "#f3f4f6", text: "#374151", dot: "#6b7280" };
+        case "Delivered": return { bg: "#d1fae5", text: "#065f46", dot: "#10b981" };
+        case "In Transit": return { bg: "#dbeafe", text: "#1e40af", dot: "#3b82f6" };
+        case "Custom Hold": return { bg: "#fef3c7", text: "#92400e", dot: "#f59e0b" };
+        case "Held": return { bg: "#fef3c7", text: "#92400e", dot: "#f59e0b" };
+        case "Pending": return { bg: "#f3f4f6", text: "#374151", dot: "#6b7280" };
+        case "Returned": return { bg: "#fee2e2", text: "#991b1b", dot: "#ef4444" };
+        default: return { bg: "#f3f4f6", text: "#374151", dot: "#6b7280" };
     }
 };
 
@@ -156,7 +156,7 @@ async function printReceipt(shipment: any) {
     doc.setFontSize(6.2);
     doc.setFont("helvetica", "normal");
     doc.text("International Air, Ocean & Overland Logistics Services", M, y);
-    doc.text("support@horizonlogistics.com   •   https://horizonlogistics.com", W - M, y, { align: "right" });
+    doc.text("logisticshorizon470@gmail.com   •   https://horizonlogistics.s-itez.com", W - M, y, { align: "right" });
 
     y += 6;
 
@@ -535,7 +535,7 @@ async function printReceipt(shipment: any) {
 
     st(MUTED);
     doc.setFontSize(5.5);
-    doc.text(`Document Ref: HL-DOC-${orderIdNum}-${shipment.trackingId}   •   Customer Service: +1 (800) 555-0199`, M + 5, y + 21);
+    doc.text(`Document Ref: HL-DOC-${orderIdNum}-${shipment.trackingId}   •   Customer Service: (929) 244-3099`, M + 5, y + 21);
 
     // Right: Authorized Digital Sign-Off (Clean Corporate, NO Cartoon Stamps)
     const signBoxW = 56;
@@ -650,7 +650,7 @@ function openSmartsupp(trackingId: string, clearanceFee: number | null) {
         try {
             (window as any).smartsupp("chat:open");
             (window as any).smartsupp("chat:message", msg);
-        } catch {}
+        } catch { }
     }
 
     // 4. Click launcher button in case JS API is restricted on free tier
@@ -715,7 +715,7 @@ function openSmartsupp(trackingId: string, clearanceFee: number | null) {
         if (typeof (window as any).smartsupp === "function") {
             try {
                 (window as any).smartsupp("chat:message", msg);
-            } catch {}
+            } catch { }
         }
     }, 600);
 }
@@ -873,7 +873,7 @@ function TrackingContent() {
                 const trackUrl = `${window.location.origin}/track?id=${shipment.trackingId}`;
                 QRCode.toDataURL(trackUrl, { width: 180, margin: 1 })
                     .then(setQrCodeUrl)
-                    .catch(() => {});
+                    .catch(() => { });
             });
         }
     }, [shipment?.trackingId]);
@@ -926,7 +926,7 @@ function TrackingContent() {
     );
 
     let trackingHistory: any[] = [];
-    try { trackingHistory = JSON.parse(shipment.trackingHistory || "[]"); } catch {}
+    try { trackingHistory = JSON.parse(shipment.trackingHistory || "[]"); } catch { }
 
     const hasClearanceFee = shipment.clearanceFee && Number(shipment.clearanceFee) > 0;
 

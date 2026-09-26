@@ -315,10 +315,22 @@ export function AddShipmentForm({
                         <User className="text-secondary h-5 w-5" /> SENDER INFO
                     </h3>
                     <div className="space-y-4">
-                        <input placeholder="Name *" required className={inputCls} value={formData.senderName} onChange={(e) => updateField("senderName", e.target.value)} />
-                        <input placeholder="Phone Number" className={inputCls} value={formData.senderPhone} onChange={(e) => updateField("senderPhone", e.target.value)} />
-                        <input placeholder="Address" className={inputCls} value={formData.senderAddress} onChange={(e) => updateField("senderAddress", e.target.value)} />
-                        <input placeholder="Email" type="email" className={inputCls} value={formData.senderEmail} onChange={(e) => updateField("senderEmail", e.target.value)} />
+                        <div className="space-y-2">
+                            <label className={labelCls}>Sender Name *</label>
+                            <input placeholder="Enter sender name" required className={inputCls} value={formData.senderName} onChange={(e) => updateField("senderName", e.target.value)} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className={labelCls}>Phone Number</label>
+                            <input placeholder="e.g. +1 (555) 000-0000" className={inputCls} value={formData.senderPhone} onChange={(e) => updateField("senderPhone", e.target.value)} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className={labelCls}>Address</label>
+                            <input placeholder="Street address, city, country" className={inputCls} value={formData.senderAddress} onChange={(e) => updateField("senderAddress", e.target.value)} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className={labelCls}>Email</label>
+                            <input placeholder="sender@example.com" type="email" className={inputCls} value={formData.senderEmail} onChange={(e) => updateField("senderEmail", e.target.value)} />
+                        </div>
                     </div>
                 </div>
                 <div className={sectionCls}>
@@ -326,10 +338,22 @@ export function AddShipmentForm({
                         <User className="text-green-500 h-5 w-5" /> RECIPIENT INFO
                     </h3>
                     <div className="space-y-4">
-                        <input placeholder="Name *" required className={inputCls} value={formData.recipientName} onChange={(e) => updateField("recipientName", e.target.value)} />
-                        <input placeholder="Phone Number" className={inputCls} value={formData.recipientPhone} onChange={(e) => updateField("recipientPhone", e.target.value)} />
-                        <input placeholder="Address" className={inputCls} value={formData.recipientAddress} onChange={(e) => updateField("recipientAddress", e.target.value)} />
-                        <input placeholder="Email" type="email" className={inputCls} value={formData.recipientEmail} onChange={(e) => updateField("recipientEmail", e.target.value)} />
+                        <div className="space-y-2">
+                            <label className={labelCls}>Recipient Name *</label>
+                            <input placeholder="Enter recipient name" required className={inputCls} value={formData.recipientName} onChange={(e) => updateField("recipientName", e.target.value)} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className={labelCls}>Phone Number</label>
+                            <input placeholder="e.g. +1 (555) 000-0000" className={inputCls} value={formData.recipientPhone} onChange={(e) => updateField("recipientPhone", e.target.value)} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className={labelCls}>Address</label>
+                            <input placeholder="Delivery address, city, country" className={inputCls} value={formData.recipientAddress} onChange={(e) => updateField("recipientAddress", e.target.value)} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className={labelCls}>Email</label>
+                            <input placeholder="recipient@example.com" type="email" className={inputCls} value={formData.recipientEmail} onChange={(e) => updateField("recipientEmail", e.target.value)} />
+                        </div>
                     </div>
                 </div>
             </div>
