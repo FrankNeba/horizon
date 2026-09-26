@@ -16,8 +16,9 @@ export async function GET() {
             orderBy: { createdAt: "desc" },
         });
         return NextResponse.json(shipments);
-    } catch (error) {
-        return NextResponse.json({ error: "Failed to fetch" }, { status: 500 });
+    } catch (error: any) {
+        console.error("Error in /api/admin/shipments GET:", error);
+        return NextResponse.json({ error: "Failed to fetch", details: error?.message || String(error) }, { status: 500 });
     }
 }
 

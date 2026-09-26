@@ -50,6 +50,14 @@ model Shipment {
   
   imageUrl         String?
   
+  // New fields
+  weight           Float?
+  freightType      String?   @default("Road Freight") // Air Freight, Sea Freight, Road Freight
+  dutyFees         Float?
+  clearanceFee     Float?
+  paymentStatus    String    @default("Unpaid") // Paid, Unpaid
+  trackingHistory  String?   // JSON string of tracking events
+  
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
