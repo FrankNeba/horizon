@@ -28,3 +28,10 @@ body {
   background: var(--background);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+/* Leaflet Custom Plane Marker */
+.leaflet-div-icon.tracking-plane-marker,
+.tracking-plane-marker {
+  background: transparent !important;
+  border: none !important;
+}

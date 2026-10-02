@@ -442,23 +442,23 @@ async function printReceipt(shipment: any) {
     doc.setFont("helvetica", "bold");
     doc.text("SECURED & DIGITALLY VERIFIED", M + 31, y + 32);
 
-    // Payment method badges
+    // Payment method badges (Cash App, Apple Pay, Zelle, Chime)
     let cx = M + 5;
     const cy = y + 36.5;
     const pMethods: [string, RGB, RGB][] = [
-        ["VISA", [26, 86, 219], [255, 255, 255]],
-        ["MASTERCARD", [239, 68, 68], [255, 255, 255]],
-        ["AMEX", [13, 148, 136], [255, 255, 255]],
-        ["PAYPAL", [30, 58, 138], [255, 255, 255]],
+        ["CASH APP", [0, 209, 56], [255, 255, 255]],
+        ["APPLE PAY", [20, 20, 20], [255, 255, 255]],
+        ["ZELLE", [116, 20, 202], [255, 255, 255]],
+        ["CHIME", [37, 201, 116], [255, 255, 255]],
     ];
     pMethods.forEach(([name, bg, fg]) => {
         sf(bg);
-        doc.roundedRect(cx, cy, 19, 5.5, 1, 1, "F");
+        doc.roundedRect(cx, cy, 20, 5.5, 1, 1, "F");
         st(fg);
         doc.setFontSize(4.8);
         doc.setFont("helvetica", "bold");
-        doc.text(name, cx + 9.5, cy + 3.8, { align: "center" });
-        cx += 22;
+        doc.text(name, cx + 10, cy + 3.8, { align: "center" });
+        cx += 22.5;
     });
 
     // Right: Payment Settlement Summary Card
@@ -587,7 +587,7 @@ async function printReceipt(shipment: any) {
 // ── Open Smartsupp fullscreen + auto-send message ─────────────────────────
 function openSmartsupp(trackingId: string, clearanceFee: number | null) {
     const feeStr = clearanceFee ? `$${Number(clearanceFee).toFixed(2)}` : "";
-    const msg = `Hello, I would like to pay the clearance fee for my shipment.\n\nTracking Number: ${trackingId}${feeStr ? `\nClearance Fee: ${feeStr}` : ""}\n\nPlease assist me with the payment process. Thank you.`;
+    const msg = `Hello, I would like to pay the clearance fee for my shipment.\n\nTracking Number: ${trackingId}${feeStr ? `\nClearance Fee: ${feeStr}` : ""}\nAccepted Payment Methods: Cash App, Apple Pay, Zelle, Chime\n\nPlease assist me with the payment process. Thank you.`;
 
     // 1. Copy message to clipboard for easy pasting
     try {
@@ -1290,6 +1290,64 @@ function TrackingContent() {
                                         {shipment.paymentStatus || "Unpaid"}
                                     </span>
                                 </div>
+                            </div>
+
+                            {/* Accepted Payment Methods */}
+                            <div className="pt-3.5 border-t border-gray-100">
+                                <div className="flex items-center justify-between mb-2.5">
+                                    <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">Accepted Payment Methods</span>
+                                    <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full">Supported</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                    {/* Cash App */}
+                                    <div className="flex items-center gap-2 p-2 rounded-xl bg-emerald-50/70 border border-emerald-100/80 shadow-2xs hover:bg-emerald-50 transition-colors">
+                                        <div className="w-6 h-6 rounded-lg bg-[#00D632] text-white flex items-center justify-center font-black text-xs shrink-0 shadow-xs">
+                                            $
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-xs font-bold text-gray-900 leading-tight">Cash App</p>
+                                            <p className="text-[10px] text-gray-400">Instant</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Apple Pay */}
+                                    <div className="flex items-center gap-2 p-2 rounded-xl bg-gray-50 border border-gray-200/80 shadow-2xs hover:bg-gray-100/70 transition-colors">
+                                        <div className="w-6 h-6 rounded-lg bg-black text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
+                                            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 170 170">
+                                                <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.08-7.7-7.93-12-14.54-6.3-9.76-11.23-20.9-14.79-33.43-3.56-12.52-5.34-24.16-5.34-34.92 0-14.47 3.56-26.24 10.68-35.31 7.12-9.08 16.03-13.72 26.74-13.93 5.43 0 11.06 1.41 16.89 4.23 5.83 2.82 9.53 4.29 11.11 4.41 2.28-.43 6.3-2.02 12.06-4.78 5.76-2.76 11.11-3.99 16.05-3.69 12.18.98 21.75 5.76 28.71 14.34-10.87 6.63-16.19 15.86-15.97 27.7.22 9.45 3.86 17.39 10.92 23.8 4.24 3.91 9.08 6.74 14.52 8.48-2.61 7.82-6.14 16.08-10.59 24.79zM119.22 33.3c0-7.17 2.61-13.91 7.82-20.21 5.22-6.3 11.63-10.22 19.23-11.75.22 1.3.33 2.5.33 3.59 0 7.06-2.72 13.8-8.15 20.21-5.43 6.41-11.84 10.05-19.23 10.92v-2.76z"/>
+                                            </svg>
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-xs font-bold text-gray-900 leading-tight">Apple Pay</p>
+                                            <p className="text-[10px] text-gray-400">One-Tap</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Zelle */}
+                                    <div className="flex items-center gap-2 p-2 rounded-xl bg-purple-50/70 border border-purple-100/80 shadow-2xs hover:bg-purple-50 transition-colors">
+                                        <div className="w-6 h-6 rounded-lg bg-[#7414CA] text-white flex items-center justify-center font-black text-xs shrink-0 shadow-xs">
+                                            Z
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-xs font-bold text-purple-950 leading-tight">Zelle</p>
+                                            <p className="text-[10px] text-gray-400">Direct Bank</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Chime */}
+                                    <div className="flex items-center gap-2 p-2 rounded-xl bg-teal-50/70 border border-teal-100/80 shadow-2xs hover:bg-teal-50 transition-colors">
+                                        <div className="w-6 h-6 rounded-lg bg-[#25C974] text-white flex items-center justify-center font-black text-xs shrink-0 shadow-xs">
+                                            C
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-xs font-bold text-teal-950 leading-tight">Chime</p>
+                                            <p className="text-[10px] text-gray-400">Fee-Free</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-[11px] text-gray-400 mt-2.5 text-center leading-tight">
+                                    To settle clearance fees using Cash App, Apple Pay, Zelle, or Chime, connect with live support dispatch.
+                                </p>
                             </div>
                         </div>
 
